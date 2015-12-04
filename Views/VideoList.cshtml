@@ -1,0 +1,61 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "umbLayout.cshtml";
+    
+    
+    var homePage = CurrentPage.AncestorsOrSelf(1).First();
+    var videoList = homePage.Videolists;
+    var currentVideoList = CurrentPage.Children.OrderBy("publishDate desc, createDate desc");
+
+}
+
+<div class="news">
+    @section banner{
+        <div class="newsBanner">
+            <div class="guanggao">
+                    <img alt="中科金集" src="/images/TeachVideo.png" style="max-height: 250px" />
+            </div>
+        </div>
+    }
+    <div class="sitemap">
+        <span> <a href="/">首页</a>&nbsp;>&nbsp;视频列表</span>
+    </div>
+    <div class="neirong">
+        <div class="left">
+            <h3>&nbsp;&nbsp;&nbsp;&nbsp;视频列表</h3>
+            <ul>
+
+                @foreach (var item in videoList)
+                {
+                    var getCurrentUrl = Request.RawUrl.Substring(1).ToLower();
+
+
+                    <li @(getCurrentUrl == item.Name.ToLower() || getCurrentUrl == item.Name.ToLower()+"/" ? "class=active" : "")>
+                        <a href="@item.Url">@item.VideoType</a>
+                    </li>
+                }
+
+            </ul>
+
+        </div>
+        <div class="right">
+            <div class="title">
+                <h3><img src="/images/icon3-1.png" width="20" height="15" /> 视频列表</h3>
+            </div>
+            <div class="clear"></div>
+            <div id="VideoList">
+                <ul>
+                    @foreach (var item in currentVideoList)
+                    {
+                        <li>
+                            <a href="@item.Url">
+                                <img src="@(item.VideoImage)" />
+                                @(item.VideoTitle)
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

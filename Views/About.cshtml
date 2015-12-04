@@ -1,0 +1,50 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "umbLayout.cshtml";
+    var menuType = @Umbraco.Field("AboutType");
+}
+
+<div class="news">
+    @section banner{
+        <div class="newsBanner">
+            <div class="guanggao">
+                <img alt="关于我们" src="/images/contactBanner.jpg"  style="max-height: 250px"/>
+            </div>
+        </div>
+    }
+    <div class="sitemap">
+        <span> <a href="/">首页</a>&nbsp;>&nbsp;<a href="/about">关于我们</a>&nbsp;>&nbsp;@Umbraco.Field("pageTitle")</span>
+    </div>
+
+    <div class="neirong">
+        <div class="left">
+            <h3>&nbsp;&nbsp;&nbsp;&nbsp;关于我们</h3>
+            <ul>
+
+                <li @(menuType.ToString().ToLower() == "company" ? "class=active" : "")>
+                    <a href="/about">公司介绍</a>
+                </li>
+                <li @(menuType.ToString().ToLower() == "team" ? "class=active" : "")>
+                    <a href="/about/team">团队介绍</a>
+                </li>
+                <li @(menuType.ToString().ToLower() == "join" ? "class=active" : "")>
+                    <a href="/about/join">加入我们</a>
+                </li>
+                <li @(menuType.ToString().ToLower() == "contact" ? "class=active" : "")>
+                    <a href="/about/contact">联系方式</a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="right">
+            <div class="title">
+                    
+                <h3><img src="/images/icon3-1.png" width="20" height="15" /> @Umbraco.Field("pageTitle")</h3>
+            </div>
+            <div class="bodyText">
+                @Umbraco.Field("bodyText")
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,919 @@
+﻿/* CSS Document */
+
+@charset "utf-8";
+/* CSS Document */
+body {
+    font: 14px/150% microsoft Yahei, Arial, Lucida Grande, Verdana, Lucida, Helvetica, sans-serif;
+    color: #3e3e3e;
+}
+
+body, ul, ol, li, dl, dt, dd, em, p, div, h1, h2, h3, h4, h5, h6, input, form, tr, th, img, td, label {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    border: 0;
+}
+
+ul, li {
+    list-style: none;
+}
+
+.clear {
+    clear: both;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+b, span, i, p {
+    color: #333;
+}
+
+a:hover {
+    color: #0d83d7;
+    text-decoration: none;
+}
+
+
+
+
+/*haed开始*/
+.headMenu {
+    
+    margin: 0 auto;width: 1170px;clear: both;
+}
+
+
+.haed {
+    background: url(../images/navbg.png);
+    height: 86px;
+    width: 100%;
+    position: relative;
+    top: 0px;
+    z-index: 2;
+    min-width: 1170px;
+    box-shadow: 0px 0px 30px #ddd;
+}
+
+    .haed .menu {
+        margin: 0 auto;
+        width: 1170px;
+        height: 86px;
+        position: relative;
+        top: 0px;
+        left: 1px;
+        z-index: 3;
+        overflow: hidden;
+    }
+
+        .haed .menu .logo {
+            float: left;
+        }
+
+        .haed .menu .haed-top {
+            float: right;
+        }
+
+            .haed .menu .haed-top .top {
+                float: right;
+                margin: 16px 0px 1px 0px;
+                height: 35px;
+                width: 380px;
+            }
+
+                .haed .menu .haed-top .top a {
+                    display: block;
+                }
+
+                .haed .menu .haed-top .top .tu-1 {
+                    float: left;
+                    background: url(../images/ICON-40-40.png)no-repeat scroll 3px 0px;
+                    display: block;
+                    width: 40px;
+                    height: 35px;
+                }
+
+                .haed .menu .haed-top .top .tu-2 {
+                    float: left;
+                    background: url(../images/ICON-40-40.png)no-repeat scroll 3px -40px;
+                    display: block;
+                    width: 53px;
+                    height: 35px;
+                }
+
+                .haed .menu .haed-top .top span {
+                    float: left;
+                    width: 244px;
+                }
+
+                    .haed .menu .haed-top .top span .text1 {
+                        width: 190px;
+                        height: 20px;
+                        border: #d0d6e2 1px solid;
+                        margin: 0px 0px 0px 10px;
+                    }
+
+                    .haed .menu .haed-top .top span .tu-3 {
+                        float: right;
+                        background: url(../images/ICON-40-40.png)no-repeat scroll 0px -80px;
+                        display: block;
+                        width: 40px;
+                        height: 35px;
+                    }
+
+            .haed .menu .haed-top .nav {
+                float: right;
+            }
+
+            .haed .menu .haed-top .LoginInfo {
+                height:50px;
+                padding-right:20px;
+                line-height:50px;
+                text-align:right;
+            }
+
+                .haed .menu .haed-top .nav ul li {
+                    float: left;
+                    padding: 0px 27px 0px 27px;
+                }
+
+                    .haed .menu .haed-top .nav ul li a {
+                        font-size: 18px;
+                        color: #000000;
+                    }
+/*haed结束*/
+
+
+
+
+
+
+
+/*footer开始*/
+.footer {
+    background: #626879;
+    clear: both;
+    margin-top: 200px;
+    border-top:5px solid #bfd6e4;
+}
+
+.footer a {
+
+    color: white;
+}
+
+
+    .footer .footerMenu {
+        width: 630px;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+        .footer .footerMenu ul {
+            width: 625px;
+        }
+
+        .footer .footerMenu li {
+            float: left;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+            .footer .footerMenu li.split {
+                text-align: center;
+                width: 5px;
+            }
+
+
+
+    .footer .aa-3 {
+        margin: 0px auto;
+        text-align: center;
+        background: #727888;
+        border-top: 1px solid #414550;
+        border-bottom: 5px solid #5c616f;
+        margin-top: 30px;
+        font-size: 12px;
+    }
+
+        .footer .aa-3 b {
+            font-weight: normal;
+            line-height: 39px;
+              color: white;
+        }
+
+.footer .footerMenu ul li {
+      margin-top: 5px;
+}
+
+/*footer结束*/
+
+
+
+
+
+/*首页页面开始*/
+/*banner结束*/
+.indexBanner {
+    width: 100%;
+    height: 430px;
+    margin-bottom: 10px;
+    position: relative;
+    min-width: 1170px;
+}
+
+
+div.slideBox {
+    position: relative;
+    overflow: hidden;
+    top: -86px;
+}
+
+    div.slideBox ul.items {
+        position: absolute;
+        float: left;
+        background: none;
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+    }
+
+        div.slideBox ul.items li {
+            float: left;
+            background: none;
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+        }
+
+            div.slideBox ul.items li a {
+                float: left;
+                line-height: normal !important;
+                padding: 0px !important;
+                border: none /*For IE.ADD.JENA.201206300844*/;
+            }
+
+                div.slideBox ul.items li a img {
+                    margin: 0px !important;
+                    padding: 0px !important;
+                    display: block;
+                    border: none /*For IE.ADD.JENA.201206300844*/;
+                    width: 100%;
+                }
+
+
+
+    div.slideBox div.tips {
+        position: absolute;
+        top: 87px;
+        left: 1084px;
+        background: transparent url("/images/navbg-1.png") repeat scroll 0% 0%;
+        width: 451px;
+        height: 429px;
+        overflow: hidden;
+    }
+
+        div.slideBox div.tips div.title {
+            position: absolute;
+            left: 41px;
+            top: 0px;
+            height: 340px;
+            width: 376px;
+            color: #FFF;
+            font-size: 14px;
+        }
+
+            div.slideBox div.tips div.title a {
+                color: #FFF;
+                font-size: 18px;
+                margin-left: 10px;
+                text-decoration: none;
+                padding-top: 60px;
+                display: block;
+                line-height: 30px;
+            }
+
+        div.slideBox div.tips div.nums {
+            position: absolute;
+            right: 20px;
+            top: 375px;
+        }
+
+            div.slideBox div.tips div.nums a {
+                display: inline-block;
+                float:left /*For IE.ADD.JENA.201206300844*/;
+                width: 18px;
+                height: 18px;
+                background-color: #FFF;
+                text-indent: -99999px;
+                margin: 15px 10px 0 0;
+            }
+
+                div.slideBox div.tips div.nums a.active {
+                    background-color: #093;
+                }
+/*banner结束*/
+
+
+
+
+/*content开始*/
+
+
+
+
+
+.index .title {
+    height: 48px;
+    background: #f8f8f8;
+}
+
+
+.content {
+    margin: 0 auto;
+    width: 1170px;
+    clear: both;
+    margin-top: 100px;
+}
+
+/*.setIeContent {
+    
+    margin: 0 auto;
+    width: 1170px;
+    clear: both;
+    margin-top: 100px;
+}*/
+
+
+
+.content .NoticeLeft {
+    float: left;
+    width: 52px;
+    padding-top: 10px;
+}
+
+.content .title p {
+    float: left;
+    height: 45px;
+    line-height: 45px;
+    width: 527px;
+    overflow: hidden;
+}
+
+    .content .title p.split {
+        width: 60px;
+    }
+
+    .content .title p a:hover {
+        color: #ef7900;
+    }
+
+.content .left {
+    float: left;
+    width: 802px;
+    margin-bottom: 10px;
+}
+
+    .content .left i img {
+        margin: 0px 15px 25px 0px;
+        width: 802px;
+        height: 54px;
+        float: left;
+    }
+
+    .content .left i a {
+        color: #2e6ab2;
+        font-style: normal;
+        margin: -62px 0px 0px 683px;
+        float: left;
+    }
+
+        .content .left i a:hover {
+            color: #ef7900;
+        }
+
+    .content .left .aa-1 img {
+        width: 194px;
+        height: 146px;
+    }
+
+
+.content .homenewsList {
+    clear: both;
+    padding-top: 20px;
+}
+
+.content .homenewsFrist {
+    width: 100%;
+}
+
+.content .homenewsLeft {
+    float: left;
+    margin-right: 30px;
+    width: 194px;
+    height: 146px;
+}
+
+.content .homenewsRight {
+    float: left;
+    height: 146px;
+    width: 570px;
+    overflow: hidden;
+}
+
+.content .left .aa-1 {
+    display: block;
+    margin-bottom: 20px;
+}
+
+    .content .left .aa-1 a b {
+        color: #ef7900;
+        display: block;
+        margin-bottom: 6px;
+        font-size: 15px;
+    }
+
+        .content .left .aa-1 a b:hover {
+            color: #ef7900;
+        }
+
+    .content .left .aa-1 p {
+        margin-bottom: 6px;
+        margin-right: 72px;
+    }
+
+
+.News-ul {
+    clear: both;
+}
+
+    .News-ul li {
+        float: left;
+        width: 350px;
+        background: url(/images/ICON-40-40.png)no-repeat scroll 2px -154px;
+        margin-right: 37px;
+        margin-bottom: 3px;
+    }
+
+        .News-ul li a p {
+            margin-left: 20px;
+            width: 328px;
+        }
+
+            .News-ul li a p:hover {
+                color: #ef7900;
+            }
+
+.content .right {
+    float: left;
+    width: 360px;
+    margin-bottom: 10px;
+}
+
+    .content .right i img {
+        margin: 0px 0px 25px 0px;
+        width: 368px;
+        height: 54px;
+        float: left;
+    }
+
+    .content .right i a {
+        color: #2e6ab2;
+        font-style: normal;
+        margin: -62px 0px 0px 300px;
+        float: left;
+    }
+
+        .content .right i a:hover {
+            color: #ef7900;
+        }
+
+    .content .right .aa-2 img {
+        margin-right: 30px;
+        margin-bottom: 10px;
+    }
+
+    .content .right .aa-2 span {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+        .content .right .aa-2 span a b {
+            color: #ef7900;
+            display: block;
+            margin-bottom: 6px;
+            margin-top: 4px;
+            font-size: 15px;
+        }
+
+            .content .right .aa-2 span a b:hover {
+                color: #ef7900;
+            }
+
+        .content .right .aa-2 span p {
+            margin-bottom: 10px;
+        }
+
+
+
+#CuPlayerIndex {
+    width: 367px;
+    height: 210px;
+}
+
+/*公告内容向上滚动效果开始*/
+#up_zzjs {
+    width: 1115px;
+    float: left;
+    height: 45px;
+    overflow: hidden;
+}
+
+    #up_zzjs .up_li {
+        width: 1115px;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        margin-left: 6px;
+        clear: both;
+        height: 45px;
+    }
+
+        /*系统支持ie8就选line-height:16px;，但不支持opera 否则选line-height:20px;*/
+        #up_zzjs .up_li a {
+            font-size: 14px;
+        }
+/*公告内容向上滚动效果结束*/
+
+
+
+/*首页新闻最下面内容*/
+#NewsInfo {
+    width: 100%;
+}
+
+    #NewsInfo .NewsPart {
+        float: left;
+        width: 370px;
+    }
+
+.NewsTitle {
+    border-top: 1px solid #dddddd;
+    width: 100%;
+    line-height: 50px;
+    position: relative;
+    height: 50px;
+}
+
+
+    .NewsTitle .NewsTitleLeft {
+        position: absolute;
+        border-top: 2px solid #2E6AB2;
+        left: 0;
+        top: -1px;
+        width: 130px;
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 5px;
+        padding-left: 10px;
+    }
+
+        .NewsTitle .NewsTitleLeft .HighLight {
+            color: #EF7900;
+        }
+
+    .NewsTitle .NewsTitleRight {
+        position: absolute;
+        right: 10px;
+    }
+
+        .NewsTitle .NewsTitleRight a {
+            color: #2e6ab2;
+        }
+
+
+.newHead img {
+    height: 54px;
+    float: left;
+}
+
+.newHead a {
+    color: #2e6ab2;
+    font-style: normal;
+    margin: -42px 0 0 320px;
+    float: left;
+}
+
+#newHead a:hover {
+    color: #ef7900;
+}
+
+
+
+#NewsInfo #NewsPartMiddle {
+    margin: 0 20px;
+}
+
+/*首页页面结束*/
+
+
+
+
+/*news开始*/
+.news {
+    margin: 0 auto;
+    width: 1170px;
+    clear: both;
+    min-width: 1170px;
+}
+
+
+/*banner结束*/
+.newsBanner {
+    width: 100%;
+    position: relative;
+    top: 0px;
+    min-width: 1170px;
+    height: 100px;
+    margin-top: 85px;
+}
+
+    .newsBanner .guanggao {
+        position: absolute;
+        top: -86px;
+        width: 100%;
+    }
+
+        .newsBanner .guanggao img {
+            height: 420px;
+            width: 100%;
+        }
+
+.sitemap {
+    margin: 20px 0px 20px 0px;
+}
+
+.news .title {
+    margin: 10px 0px 20px 0px;
+}
+
+.news .neirong {
+    margin: 10px 0px 20px 0px;
+}
+
+    .news .neirong .left {
+        width: 244px;
+        border: #d4d4d4 solid 1px;
+        float: left;
+        background: #fff;
+        min-height: 302px;
+    }
+
+        .news .neirong .left h3 {
+            height: 41px;
+            background: url(/images/title_bg2.png) repeat-x;
+            line-height: 41px;
+            font-weight: normal;
+        }
+
+        .news .neirong .left ul {
+            background: #f6f6f6;
+            margin: 0 1px 1px 1px;
+            height: 100%;
+            overflow: hidden;
+            padding-bottom: 20px;
+            min-height: 300px;
+            padding-top: 15px;
+        }
+
+        .news .neirong .left li {
+            margin-left: 28px;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #E6E6E6;
+            background: transparent url("/images/unchecked.gif") no-repeat scroll 0px 15px;
+            padding-left: 20px;
+            width: 160px;
+        }
+
+            .news .neirong .left li a:hover {
+                color: #09C;
+                font-weight: normal;
+            }
+
+            .news .neirong .left li.active {
+                background: transparent url("/images/checked.gif") no-repeat scroll 0px 15px;
+                color: #F98B0C;
+            }
+
+                .news .neirong .left li.active a {
+                    color: #F98B0C;
+                }
+
+
+    .news .neirong .right {
+        float: right;
+        width: 924px;
+        margin: 0 auto;
+        overflow: hidden;
+        background: url(/images/content_bg.png) repeat-x;
+    }
+
+.news .bodyText {
+    padding: 10px 30px;
+    line-height: 30px;
+    min-height: 500px;
+}
+
+
+
+/*新闻列表开始*/
+.newslist {
+    width: 100%;
+}
+
+    .newslist li {
+        overflow: hidden;
+        padding: 20px 20px;
+        border-bottom: 1px dotted #DBD4CD;
+    }
+
+    .newslist .time {
+        float: left;
+        width: 60px;
+    }
+
+    .newslist .day, .newslist .date {
+        background-color: #EAE6E2;
+        display: block;
+        text-align: center;
+        font-family: Arial;
+    }
+
+    .newslist .day {
+        height: 42px;
+        line-height: 42px;
+        border-bottom: 1px solid #FFF;
+        color: #000;
+        font-size: 30px;
+    }
+
+    .newslist .date {
+        height: 18px;
+        line-height: 18px;
+        font-size: 10px;
+    }
+
+    .newslist .conts {
+        float: right;
+        width: 800px;
+    }
+
+    .newslist h3 {
+        padding-bottom: 10px;
+        margin-top: -2px;
+        font-size: 14px;
+        color: #757575;
+        font-weight: bold;
+    }
+
+    .newslist .more {
+        margin-left: 8px;
+    }
+/*新闻列表结束*/
+
+/*新闻详情开始*/
+.newsdetail {
+    margin: 0px auto;
+    width: 1170px;
+    clear: both;
+    min-width: 1170px;
+}
+
+    .newsdetail .title {
+        margin: 10px 0px 20px;
+    }
+
+    .newsdetail .neirong {
+        margin: 10px 0px 20px 0px;
+    }
+
+/*单个视频显示*/
+.newsItemDisplay {
+    min-height: 500px;
+    padding-top: 50px;
+}
+
+    .newsItemDisplay b {
+        font-size: 28px;
+        color: #252525;
+        display: block;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    /*.newsItemDisplay i {
+        font-style: normal;
+        margin: 15px 0 20px 0;
+        display: block;
+        color: #999999;
+        text-align: center;
+    }*/
+
+.newsdetail .neirong .tupian img {
+    width: 450px;
+    height: 262px;
+    margin: 0 100px 30px 40px;
+    clear: both;
+    float: right;
+}
+
+
+.newsdetail .neirong .newsItemDisplay p {
+    text-indent: 30px;
+}
+
+.newsdetail .neirong .VideoPlay {
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+/*视频列表维护开始*/
+#VideoList {
+    padding: 0 20px;
+}
+
+    #VideoList li {
+        float: left;
+        width: 280px;
+        height: 220px;
+        text-align: center;
+        padding: 10px 7px 20px;
+    }
+
+        #VideoList li.VideoMiddle {
+            margin: 0 20px;
+        }
+
+        #VideoList li img {
+            width: 280px;
+            height: 200px;
+            border-radius: 5px;
+        }
+/*视频列表维护结束*/
+
+
+/*视频详情维护开始*/
+.VideoPlay #CuPlayerIndex {
+   margin-left:250px;
+}
+
+
+
+.VideoDesc {
+    width: 1070px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+
+.VideoWord {
+
+    float:left;
+    width:350px;
+    padding-top:20px
+}
+
+    .VideoWord b {
+
+           font-size: 20px;
+           margin-left: 70px;
+          
+    }
+
+/*视频详情维护开始*/
+
+.Zkjj_p1 {
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    height: 50px;
+}
+
+.Zkjj_p2 {
+    text-indent: 30px;
+}
+
+.NewsTable {
+    width: 100%;
+}
+

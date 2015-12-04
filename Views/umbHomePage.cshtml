@@ -1,0 +1,284 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    ViewBag.Title = "首页";
+    Layout = "umbLayout.cshtml";
+
+
+    var homePage = CurrentPage.AncestorsOrSelf(1).First();
+
+    //得到新闻列表
+    var newsList = homePage.Newslists.First();
+    var newsItems = newsList.NewsItem.OrderBy("publishDate desc, createDate desc").Take(13);
+    var firstNewsItem = newsItems.First();
+
+
+    //得到banner列表信息
+    var banner = homePage.BannerList.First();
+    var bannerItems = banner.BannerItem.OrderBy("publishDate desc, createDate desc");
+
+
+    //得到公告列表信息
+    var note = homePage.NoteList.First();
+    var noteItems = note.NoteItem.OrderBy("publishDate desc, createDate desc");
+
+
+    //得到主页comany视频单个信息
+    var video = homePage.VideoList.First();
+    var videoItem = video.VideoItem.OrderBy("publishDate desc, createDate desc");
+
+    //用于进行大小标记
+    var noteCount = noteItems == null ? 0 : noteItems.Count();
+    var newsIndex = 0;
+}
+@section heads{
+    <script src="~/js/CuPlayer/swfobject.js"></script>
+    <script src="~/js/CuPlayer/CuPlayer.js"></script>
+}
+
+<div class="index">
+    @section banner{
+        <div class="indexBanner">
+            <div id="zkjl-banner" class="slideBox" style="margin-top: 85px;">
+                <ul class="items">
+                    @foreach (var bannerItem in bannerItems)
+                    {
+                        <li>
+                            <a href="javascript:void(0);" title="@bannerItem.BannerContent">
+                                <img src="@bannerItem.bannerImage" />
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+
+
+
+
+    <!--title开始-->
+    <div class="title">
+        <div class="NoticeLeft">
+            <img src="~/images/NoteVoice.png" />
+        </div>
+        <div id="up_zzjs">
+            <div id="marquee">
+                <div class="up_li">
+                    <p>
+                        <a href="@noteItems[0].Url">@Umbraco.Truncate((noteItems[0].NoteTitle), 24)</a>
+                    </p>
+                    <p class="split">&nbsp;</p>
+                </div>
+
+                @if (noteCount > 0)
+                {
+                    if (noteCount == 1)
+                    {
+                        <div class="up_li">
+                            <p><a href="@noteItems[0].Url">@Umbraco.Truncate((noteItems[0].NoteTitle), 24)</a></p>
+                            <p class="split">&nbsp;</p>
+                        </div>
+                    }
+                    else if (noteCount == 2)
+                    {
+                        <div class="up_li">
+                            <p><a href="@noteItems[0].Url">@Umbraco.Truncate((noteItems[0].NoteTitle), 24)</a></p>
+                            <p class="split">&nbsp;</p>
+                            <p><a href="@noteItems[1].Url">@Umbraco.Truncate((noteItems[1].NoteTitle), 24)</a></p>
+                        </div>
+                    }
+                    else
+                    {
+                        if (noteCount % 2 == 0)
+                        {
+                            for (int i = 0; i < noteCount; i += 2)
+                            {
+                                <div class="up_li">
+                                    <p><a href="@noteItems[i].Url">@Umbraco.Truncate((noteItems[i].NoteTitle), 24)</a></p>
+                                    <p class="split">&nbsp;</p>
+                                    <p><a href="@noteItems[i+1].Url">@Umbraco.Truncate((noteItems[i + 1].NoteTitle), 24)</a></p>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            for (int i = 0; i < noteCount - 1; i += 2)
+                            {
+                                <div class="up_li">
+                                    <p><a href="@noteItems[i].Url">@Umbraco.Truncate((noteItems[i].NoteTitle), 24)</a></p>
+                                    <p class="split">&nbsp;</p>
+                                    <p><a href="@noteItems[i+1].Url">@Umbraco.Truncate((noteItems[i + 1].NoteTitle), 24)</a></p>
+                                </div>
+                            }
+                            <div class="up_li">
+                                <p><a href="@noteItems[noteCount - 1].Url">@Umbraco.Truncate((noteItems[noteCount - 1].NoteTitle), 24)</a></p>
+                                <p class="split">&nbsp;</p>
+                            </div>
+                        }
+                    }
+                }
+            </div>
+        </div>
+        <script language="javascript">
+            var marquee = document.getElementById('marquee');
+            var offset = 0;
+            var speed = 50;
+            var scrollheight = marquee.offsetHeight;
+            var firstNode = marquee.children[0].cloneNode(true);
+            marquee.appendChild(firstNode);//还有这里
+
+            function MarqueeInfo() {
+                if (offset == scrollheight) {
+                    offset = 0;
+                }
+                marquee.style.marginTop = "-" + offset + "px";
+                offset += 1;
+            }
+            var MyMar = setInterval(MarqueeInfo, speed);
+            document.getElementById("up_zzjs").onmouseover = function () { clearInterval(MyMar) };
+            document.getElementById("up_zzjs").onmouseout = function () { MyMar = setInterval(MarqueeInfo, speed) };
+
+        </script>
+    </div>
+    <!--title结束-->
+    <!--公司新闻 开始-->
+    <div class="left">
+        <div class="NewsTitle">
+            <span class="NewsTitleLeft">
+                <span class="HighLight">公司</span>新闻
+            </span>
+            <span class="NewsTitleRight">
+                <a href="/news">
+                    更多 》
+                </a>
+            </span>
+        </div>
+        <div class="aa-1">
+            <div class="homenewsFrist">
+                <div class="homenewsLeft">
+                    <a href="@firstNewsItem.Url" target="_blank">
+                        <img src="@firstNewsItem.NewsImage" />
+                    </a>
+                </div>
+                <div class="homenewsRight">
+                    <a href="@firstNewsItem.Url" target="_blank"><b>@Umbraco.Truncate(firstNewsItem.NewsTitle, 30)</b></a>
+                    <p>
+                        @Umbraco.Truncate(Umbraco.StripHtml(firstNewsItem.NewsContent.ToString()), 172, true);
+                    </p>
+                </div>
+            </div>
+            <div class="homenewsList">
+                <ul class="News-ul">
+                    @foreach (var item in newsItems)
+                    {
+                        if (newsIndex > 0)
+                        {
+                            <li>
+                                <a href="@item.Url" target="_blank"><p>@Umbraco.Truncate(item.NewsTitle, 22)</p></a>
+                            </li>
+                        }
+                        newsIndex++;
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--left end-->
+    <!--视频开始-->
+    <div class="right">
+        <div>
+            <div class="NewsTitle">
+                <span class="NewsTitleLeft">
+                    <span class="HighLight" style="letter-spacing: normal;">VIDEO&nbsp;</span>视频
+                </span>
+                <span class="NewsTitleRight">
+                    <a href="/companyVideo">
+                        更多 》
+                    </a>
+                </span>
+            </div>
+
+            <div class="aa-2">
+
+                @{
+                    string getVideoUrl = string.Empty;
+
+                    if (!string.IsNullOrEmpty(videoItem[0].VideoUrl))
+                    {
+                        getVideoUrl = videoItem[0].VideoUrl;
+                    }
+
+                    if (!string.IsNullOrEmpty(videoItem[0].VideoUpload))
+                    {
+                        getVideoUrl = Umbraco.TypedMedia(videoItem[0].VideoUpload).Url;
+                    }
+                }
+
+
+                @*如果视频html代码不为空*@
+                @if (string.IsNullOrEmpty(getVideoUrl) && !string.IsNullOrEmpty(videoItem[0].VideoHtmlCode))
+                {
+                    <div id="playVideoByHtml">
+                        @Html.Raw(videoItem[0].VideoHtmlCode)
+                    </div>
+                 
+                }
+                else
+                {
+                    <div class="video" id="CuPlayerIndex">
+                        <strong>提示：您没有安装Flash Player或者版本过低，请<a href="https://get.adobe.com/flashplayer/" target="_blank" style="color: blue;">点此进行网页播放器升级</a>！</strong>
+                    </div>
+                    <script language="javascript" type="text/javascript">
+                        LoadCuPlayer('CuPlayerIndex', 367, 210, '@(videoItem[0].VideoImage)', '@getVideoUrl');
+                    </script>
+                }
+
+                <span>
+                    <a href="@video.Url"><b>@Umbraco.Truncate(videoItem[0].VideoTitle, 25)</b></a>
+                    <a href="@video.Url"><p>@Umbraco.Truncate(videoItem[0].VideoContent, 60)</p></a>
+                </span>
+
+            </div>
+
+        </div>
+        <!--rihght开始-->
+    </div>
+    <!--rihght end-->
+
+
+    <div class="clear"></div>
+
+    <!--更多新闻结束-->
+    @section scripts{
+        <script src="~/js/jquery.slideBox.min.js"></script>
+
+    }
+    <script type="text/javascript" language="javascript">
+        jQuery(function ($) {
+            $('#zkjl-banner').slideBox({
+                duration: 0.2,//滚动持续时间，单位：秒
+                easing: 'linear',//swing,linear//滚动特效
+                delay: 3,//滚动延迟时间，单位：秒
+                hideClickBar: false,//不自动隐藏点选按键
+                clickBarRadius: 10
+            });
+
+            ////在Ie调整样式
+            //if (/msie/.test(navigator.userAgent.toLowerCase())) {
+
+            //    $("#setContentCss").removeClass("Content").addClass("setIeContent");
+
+            //}
+
+            //设置播放嵌入的视频html的css
+            if ($("#playVideoByHtml").length !==0) {
+
+                $("#playVideoByHtml").children().css({ width: "367px", height: "210px" });
+            }
+
+
+        });
+
+    </script>
+</div>
+

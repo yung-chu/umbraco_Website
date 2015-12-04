@@ -1,0 +1,162 @@
+﻿@using umbraco.presentation.umbraco.create
+@using Umbraco.Core.Dynamics
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+@{
+    Layout = "umbLayout.cshtml";
+}
+
+
+@section heads{
+    <script src="~/js/CuPlayer/swfobject.js"></script>
+    <script src="~/js/CuPlayer/CuPlayer.js"></script>
+
+    <link href="~/css/VideoItem.css" rel="stylesheet"/>
+}
+
+
+<div class="newsdetail">
+    <div class="sitemap">
+        <span>
+            <a href="/">首页</a>&nbsp;>&nbsp;
+            <a href="/companyVideo/">
+                视频
+            </a>
+            &nbsp;>&nbsp;
+            @Umbraco.Field("VideoTitle")
+        </span>
+    </div>
+
+    <div class="neirong">
+
+        <div class="newsItemDisplay">
+
+            <b>@Umbraco.Field("VideoTitle")</b>
+
+            <br/>
+
+            <!--myplayer/begin-->
+                <div id="myplayer">
+                    <!--酷播迷你 CuPlayerMiniV4.0 代码开始-->
+
+ 
+                    @{
+                            string getVideoUrl = string.Empty;
+
+                            if (!string.IsNullOrEmpty(Umbraco.Field("VideoUrl").ToString()))
+                            {
+                                getVideoUrl = Umbraco.Field("VideoUrl").ToString();
+                            }
+
+                            if (!string.IsNullOrEmpty(Umbraco.Field("VideoUpload").ToString()))
+                            {
+                                getVideoUrl = Umbraco.TypedMedia(Umbraco.Field("VideoUpload").ToString()).Url;
+                            }
+                     }
+                        
+                    
+                    @*如果视频html代码不为空*@
+                    @if (string.IsNullOrEmpty(getVideoUrl) && !string.IsNullOrEmpty(Umbraco.Field("VideoHtmlCode").ToString()))
+                    {
+                        <div id="playVideoByHtml">
+                            @Html.Raw(Umbraco.Field("VideoHtmlCode").ToString())
+                        </div>
+
+                    }
+                    else
+                    {
+                        <div id="CuPlayer">
+                            <strong>提示：您的Flash Player版本过低，请<a href="http://www.CuPlayer.com/">点此进行播放器升级</a>！</strong>
+                        </div>
+                        
+                        <script language="javascript" type="text/javascript">
+                            LoadCuPlayer('CuPlayer', 800, 600, '@(Umbraco.Field("VideoImage"))', '@getVideoUrl');
+                        </script>
+                    }
+
+                    <!--视频播放列表-->
+                    <div class="list">
+                        <div id="setScorllHeight"> <!--显示滚动条的高度-->
+
+                            @{
+                                var parentObject = CurrentPage.Parent;
+                                var parentPage = Umbraco.TypedContent(parentObject.Id); //获取父类对象
+                            }
+
+
+                            @foreach (var child in parentPage.Children)
+                            {
+                                var content = ApplicationContext.Current.Services.ContentService.GetById(child.Id);
+              
+                                <ul name="getHeight">
+                                    <li>
+                                        @*<a href="@child.Url" onclick="changeStream(@index);" class="@(CurrentPage.Name.ToLower() == child.Name.ToLower() ? "currentACss" : "")">
+                                            <img title="@content.GetValue("VideoTitle")" src="@content.GetValue("VideoImage")"/>
+                                            <strong title="@content.GetValue("VideoTitle")">@Umbraco.Truncate(content.GetValue("VideoTitle"), 7)</strong>
+                                            <br/>
+                                            <span>@content.GetValue("PublishDate").ToString("yyyy-MM-dd")</span>
+                                        </a>*@
+
+                                        <a href="@child.Url"  class="@(CurrentPage.Name.ToLower() == child.Name.ToLower() ? "currentACss" : "")">
+                                            <img title="@content.GetValue("VideoTitle")" src="@content.GetValue("VideoImage")"/>
+                                            <strong title="@content.GetValue("VideoTitle")">@Umbraco.Truncate(content.GetValue("VideoTitle"), 7)</strong>
+                                            <br/>
+                                            <span>@content.GetValue("PublishDate").ToString("yyyy-MM-dd")</span>
+                                        </a>
+
+
+                                    </li>
+                                </ul>
+
+                            }
+
+                        </div>
+
+                    </div>
+
+                    <!--酷播迷你 CuPlayerMiniV4.0 代码结束-->
+                </div>
+              <!--myplayer/end-->
+
+
+            <br />
+            <div class="VideoDesc">
+                @Umbraco.Field("videoContent")
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@*<script src="~/js/CuPlayer/VideoPlayList.js"></script>*@
+<script type="text/javascript">
+    $(function() {
+        $(".content").css("margin-top", "0");
+        $("ul[name='getHeight']").not(":first").css("margin-top","10px");
+
+        var maxHeight = 0;
+        var rightVideoListHeight = $(".list").height();
+
+       /*设置div滚动条  每个li height 是100px*/
+        $("ul[name='getHeight']").each(function() {
+
+            var videoItem = $(this).children(); //当前视频
+
+            maxHeight += $(videoItem).height();
+
+        });
+
+        if (maxHeight > rightVideoListHeight) {
+
+            $("#setScorllHeight").css("height", "9999px");
+        }
+
+
+        //设置播放嵌入的视频html的css
+        if ($("#playVideoByHtml").length !== 0) {
+            $("#playVideoByHtml").children().css({ "width": "800px", "height": "600px","float":"left","margin-left":"5px","margin-top":"10px" });
+        }
+
+    })
+</script>

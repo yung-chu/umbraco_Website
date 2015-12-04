@@ -1,0 +1,59 @@
+﻿
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using umbraco.cms.businesslogic.datatype;
+@{
+   Layout = "umbLayout.cshtml";
+    var homePage = CurrentPage.AncestorsOrSelf(1).First();
+    var newsOverview = homePage.Newslist.First();
+    var newsItems = newsOverview.Newsitem.OrderBy("publishDate desc, createDate desc");
+
+}
+<div class="news">
+    @section banner{
+        <div class="newsBanner">
+            <div class="guanggao">
+                <img alt="中科金集" src="/images/NewBanner.jpg" style="max-height: 250px" />
+            </div>
+        </div>
+    }
+    <div class="sitemap">
+        <span> <a href="/">首页</a>&nbsp;>&nbsp; 新闻动态 </span>
+    </div>
+    <div class="neirong">
+        <div class="left">
+            <h3>&nbsp;&nbsp;&nbsp;&nbsp;新闻动态</h3>
+            <ul>
+                <li class='active'>新闻动态</li>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="title">
+                <h3><img src="/images/icon3-1.png" width="20" height="15" /> 集团新闻</h3>
+            </div>
+            <div class="clear"></div>
+            <div class="newslist">
+                <ul>
+                    @foreach (var item in newsItems)
+                    {
+                        <li>
+                            <div class="time">
+                                <span class="day">
+                                    @item.PublishDate.ToString("dd")
+                                </span><span class="date">
+                                    @item.PublishDate.ToString("yyyy-MM")
+                                </span>
+                            </div>
+                            <div class="conts">
+                                <h3><a href="@item.Url" target="_blank">@item.NewsTitle</a></h3>
+                                <div>
+                                    @Umbraco.Truncate(Html.Raw(item.NewsContent), 119)
+                                    <a class="more" href="@item.Url"><img src="/images/2013_i08.gif" alt="更多" /></a>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

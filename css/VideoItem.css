@@ -1,0 +1,82 @@
+﻿
+
+    /* myplayer */
+    div#myplayer {
+        width: 1070px;
+        border: 1px #cccccc solid;
+        background: #ffffff;
+        height: 620px;
+        margin: 0px auto;
+        margin-top: 20px;
+    }
+
+    /*提示版本过低*/
+    div#CuPlayer {
+
+        float: left;
+        margin-left: 5px;
+        margin-top: 10px;
+    }
+
+
+    /*右侧视频列表 begin*/
+    div.list {
+
+        height:600px;
+        width:250px;
+        overflow-x:hidden;
+        overflow-y:auto;
+        float:left;
+        margin-top: 10px;
+        margin-left:10px;
+    }
+
+     div.list ul li  {
+        line-height: 30px;
+        width: 270px;
+        float: left;
+    }
+
+
+    div.list ul li img {
+
+           width: 120px;
+           height: 100px;
+           float: left;
+
+    }
+
+    div.list ul li span {
+        display: block;
+        float: left;
+        padding-left: 8px;
+    }
+
+     div.list ul li strong {
+       
+        padding-left: 8px;
+    }
+
+
+ 
+   /*右侧视频列表  end*/
+
+
+
+
+
+    /*当前样式*/
+    .currentACss {
+
+        display: block;
+        line-height: 30px;
+        border-bottom: 1px #cccccc solid;
+        height: 100px;
+        text-decoration: none;
+        background: rgb(239, 239, 239);
+        color: red;
+
+    }
+
+
+

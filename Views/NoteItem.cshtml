@@ -1,0 +1,37 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "umbLayout.cshtml";
+}
+
+<div class="news">
+    @section banner{
+        <div class="newsBanner">
+            <div class="guanggao">
+                <img alt="中科金集" src="/images/bg-001.png" style="max-height: 250px" />
+            </div>
+        </div>
+    }
+    <div class="sitemap">
+        <span> <a href="/">首页</a>&nbsp;>&nbsp;公告中心&nbsp;>&nbsp;@Umbraco.Field("NoteTitle")</span>
+    </div>
+
+    <div class="neirong">
+        <div class="left">
+            <h3>&nbsp;&nbsp;&nbsp;&nbsp;公告中心</h3>
+            <ul>
+                <li class="active">
+                    <a href="/NoteList">公告中心</a>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="title">
+                <h3><img src="/images/icon3-1.png" width="20" height="15" /> @Umbraco.Field("NoteTitle")</h3>
+            </div>
+            <div class="bodyText">
+                @Umbraco.Field("NoteContent")
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>

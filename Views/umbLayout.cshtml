@@ -1,0 +1,223 @@
+﻿
+
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using Umbraco.Web.Mvc
+@{
+    Layout = null;
+    //var home = @CurrentPage.Site();
+    var loginStatusModel = Members.GetCurrentLoginStatus();
+
+}
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <title>@Umbraco.Field("title", recursive: true) -万润金联</title>
+            <!-- Meta tags -->
+            <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+            <meta name="keywords" content="@(string.IsNullOrWhiteSpace(CurrentPage.keywords) ? "万润金联" : CurrentPage.keywords)"/>
+            <meta name="description" content="@(string.IsNullOrWhiteSpace(CurrentPage.description) ? "万润金联" : CurrentPage.description)"/>
+            <meta name="baidu-site-verification" content="tbaARc2Ekr"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <!-- Fonts -->
+            <link rel="shortcut icon" href="logo.ico" type="image/x-icon"/>
+            <link href="//fonts.googleapis.com/css?family=Merriweather:400,700,300,900" rel="stylesheet" type="text/css">
+            <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet" type="text/css">
+            <!-- CSS -->
+
+            <script src="/js/jquery.min.js"></script>
+            <script src="/js/bootstrap.min.js"></script>
+            <script src="/js/common.js"></script>
+            <link href="~/css/screen.css" rel="stylesheet"/>
+
+
+            <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+            <link rel="stylesheet" type="text/css" href="/css/main.css">
+
+
+            @RenderSection("heads", required: false)
+            <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+            <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+            <!--[if lt IE 9]>
+                <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+                <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+            <![endif]-->
+        </head>
+
+        <body>
+
+        @*<div class="haed">
+            <!--menu开始-->
+            <div class="menu">
+                <!--logo开始-->
+                <div class="logo">
+                    <a href="/">
+                        <img src="/images/logo.jpg"/>
+                    </a>
+                </div>
+                <!--logo结束-->
+
+
+                <!--haed-top开始-->
+                <div class="haed-top">
+                    <!--top开始-->
+                    <div class="top">
+
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <!--top结束-->
+                    <!--nav开始-->
+                    <div class="nav">
+                        @if (loginStatusModel.IsLoggedIn)
+                        {
+                            <div class="LoginInfo">
+                                欢迎您，@(loginStatusModel.Name)
+                            </div>
+                        }
+                        else
+                        {
+
+                        }
+                        <ul>
+
+                            <li><a href="/">首页</a></li>
+                            <li><a href="/news">新闻动态</a></li>
+                            <li><a href="/activity">公司活动</a></li>
+                            <li><a href="/about">关于我们</a></li>
+
+                        </ul>
+                    </div>
+
+                    <!--nav结束-->
+                </div>
+                <!--haed-top结束-->
+
+
+            </div>
+            <!--menu结束-->
+        </div>*@
+
+
+        <div id="header">
+            <div  class="headMenu">
+                <!-- Header | Logo, Menu ======= -->
+                <header>
+                    @*<div class="logo">
+                <a href="/"> <img src="/images/logo.jpg" alt="万润金联" /></a>
+            </div>*@
+
+                    <a href="/">
+                        <div style="color: white; font-size: 30px; font-weight: bolder; line-height: 90px; float: left;">
+                            万润金联
+                        </div>
+                    </a>
+                    <div class="mainmenu">
+                        <div id="mainmenu">
+                            <ul class="sf-menu">
+
+                                <li><a href="/" id="visited"><span class="home"><img src="/images/home.png" alt="主页" /></span>主 页</a></li>
+                                <li><a href="/news/"><span class="home"><img src="/images/blog.png" alt="新闻动态" /></span>新闻动态</a></li>
+                                <li>
+                                    <a href="/activity/"><span class="home"><img src="/images/features.png" alt="公司活动" /></span>公司活动</a>
+                                </li>
+                                <li>
+                                    <a href="/companyVideo/"><span class="home"><img src="/images/portfolio.png" alt="视频列表" /></span>视频教学</a>
+                                </li>
+                                <li>
+                                    <a href="/about"><span class="home"><img src="/images/about.png" alt="关于我们" /></span>关于我们</a>
+                                    <ul>
+                                        <li>
+                                            <a href="/about">公司介绍</a>
+                                        </li>
+                                        <li>
+                                            <a href="/about/team">团队介绍</a>
+                                        </li>
+                                        <li>
+                                            <a href="/about/join">加入我们</a>
+                                        </li>
+                                        <li>
+                                            <a href="/about/contact">联系方式</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </header>
+            </div>
+         </div>
+
+        @RenderSection("banner", required: false)
+
+
+
+        <div class="clear"></div>
+
+          <div class="content">
+                @RenderBody()
+         </div>
+
+
+        <div class="clear"></div>
+        <div class="clear"></div>
+
+        <!--copyright开始-->
+        <div class="footer">
+
+            <div class="footerMenu">
+                <ul>
+                    <li>
+                        <a href="/">
+                            网站首页
+                        </a>
+                    </li>
+                    <li class="split">|</li>
+                    <li>
+                        <a href="/news">
+                            新闻动态
+                        </a>
+                    </li>
+                    <li class="split">|</li>
+                    <li>
+                        <a href="/about">
+                            公司介绍
+                        </a>
+                    </li>
+                    <li class="split">|</li>
+                    <li>
+                        <a href="/about/team">
+                            团队介绍
+                        </a>
+                    </li>
+                    <li class="split">|</li>
+                    <li>
+                        <a href="/about/join">
+                            加入我们
+                        </a>
+                    </li>
+                    <li class="split">|</li>
+                    <li>
+                        <a href="/about/contact">
+                            联系我们
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <br/>
+            <div class="aa-3" id="setIeCopyright">
+                <b>Copyright &copy;2015 深圳万润金联基金管理有限公司&nbsp;&nbsp; ICP许可证号 粤ICP备1502122</b>
+            </div>
+        </div>
+        <!--copyright结束-->
+        <!-- Javascripts -->
+        @RenderSection("scripts", required: false)
+
+        </body>
+   </html>
+
+
+
+
